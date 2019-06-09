@@ -33,11 +33,7 @@ export class HomePage {
     this.navCtrl.setRoot('PortaoPage');
   }
 
-  // pareamento(): void {
-  //   this.navCtrl.setRoot('PareamentoPage');
-  // }
-
-  // exit(): void {
-  //   this.navCtrl.setRoot('LoginPage');
-  // }
+  cortina(): void {
+    this.navCtrl.setRoot('CortinasPage');
+  }
 }

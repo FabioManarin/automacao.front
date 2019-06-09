@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar style="background-color: gray;">
+  <ion-navbar color="gray">
     <ion-title>
       Home
     </ion-title>
@@ -13,7 +13,7 @@
   <ion-card>
     <button ion-item (click)="lampadas()" style="background-color: gray;">
       <ion-icon ios="md-bulb" md="md-bulb" item-start></ion-icon>
-      Iluminação
+      Lâmpada
     </button>
   </ion-card>
 
@@ -27,7 +27,7 @@
   <ion-card>
     <button ion-item (click)="arCondicionado()" style="background-color: gray;">
       <ion-icon ios="ios-snow" md="md-snow" item-start></ion-icon>
-      Climatização
+      Ar condicionado
     </button>
   </ion-card>
 
@@ -45,36 +45,10 @@
     </button>
   </ion-card>
 
-  <!-- <ion-card>
-    <ion-card-header>
-      O que você deseja automatizar?
-    </ion-card-header>
-  
-    <ion-list>
-      <button ion-item (click)="lampadas()">
-        <ion-icon ios="md-bulb" md="md-bulb" item-start></ion-icon>
-        Iluminação
-      </button>
-
-      <button ion-item (click)="alarme()">
-        <ion-icon ios="ios-volume-up" md="md-volume-up" item-start></ion-icon>
-        Alarme
-      </button>
-
-      <button ion-item (click)="arCondicionado()">
-        <ion-icon ios="ios-snow" md="md-snow" item-start></ion-icon>
-        Climatização
-      </button>
-
-      <button ion-item (click)="televisao()">
-        <ion-icon ios="ios-desktop" md="md-desktop" item-start></ion-icon>
-        Televisões
-      </button>
-
-      <button ion-item (click)="portao()">
-        <ion-icon ios="ios-lock" md="md-lock" item-start></ion-icon>
-        Portões
-      </button>
-    </ion-list>
-  </ion-card> -->
+  <ion-card>
+    <button ion-item (click)="cortina()" style="background-color: gray;">
+      <ion-icon ios="ios-lock" md="md-square" item-start></ion-icon>
+      Cortina
+    </button>
+  </ion-card>
 </ion-content>
