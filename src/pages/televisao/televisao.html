@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Televisão</ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="home()">
+          <ion-icon name="md-arrow-back" style="zoom:1.8;"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list-header>
+      Cômodo
+    </ion-list-header>
+  
+    <ion-item>
+      <ion-label>Suíte</ion-label>
+      <ion-toggle [checked]="isCheckSuite" color="energized" (ionChange)="tvSuite($event)"></ion-toggle>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Sala</ion-label>
+      <ion-toggle [checked]="isCheckSala" color="energized" (ionChange)="tvSala($event)"></ion-toggle>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Quarto 1</ion-label>
+      <ion-toggle [checked]="isCheckQuarto" color="energized" (ionChange)="tvQuarto($event)"></ion-toggle>
+    </ion-item>
+  </ion-content>

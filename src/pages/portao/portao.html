@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Portão</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="home()">
+        <ion-icon name="md-arrow-back" style="zoom:1.8;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list-header>
+    Opção
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Fachada</ion-label>
+    <ion-toggle [checked]="isCheckFachada" color="energized" (ionChange)="portaoFachada($event)"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Garagem</ion-label>
+    <ion-toggle [checked]="isCheckGaragem" color="energized" (ionChange)="portaoGaragem($event)"></ion-toggle>
+  </ion-item>
+</ion-content>

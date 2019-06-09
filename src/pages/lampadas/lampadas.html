@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Lampadas</ion-title>
+    <ion-buttons start>
+        <button ion-button (click)="home()">
+          <ion-icon name="md-arrow-back" style="zoom:1.8;"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list-header>
+    Cômodos
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Suíte</ion-label>
+    <ion-toggle [checked]="isCheckSuite" color="energized" (ionChange)="lampadaSuite($event)"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Quarto 1</ion-label>
+    <ion-toggle [checked]="isCheckQuarto" (ionChange)="lampadaQuarto($event)"></ion-toggle>
+  </ion-item>
+</ion-content>

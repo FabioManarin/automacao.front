@@ -1,0 +1,16 @@
+<ion-menu [content]="conteudo">
+    <ion-navbar>
+        <ion-title>
+            Menu
+        </ion-title>
+    </ion-navbar>
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="openPage('PareamentoPage')" menuClose>Configuração</button>
+            <button ion-item (click)="openPage('HistoricoPage')" menuClose>Historico de atividades</button>
+            <button ion-item (click)="openPage('LoginPage')" menuClose>Sair</button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #conteudo></ion-nav>

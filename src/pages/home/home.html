@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar style="background-color: gray;">
+    <ion-title>
+      Home
+    </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="homeContent">
+  <ion-card>
+    <button ion-item (click)="lampadas()" style="background-color: gray;">
+      <ion-icon ios="md-bulb" md="md-bulb" item-start></ion-icon>
+      Iluminação
+    </button>
+  </ion-card>
+
+  <ion-card>
+    <button ion-item (click)="alarme()" style="background-color: gray;">
+      <ion-icon ios="ios-volume-up" md="md-volume-up" item-start></ion-icon>
+      Alarme
+    </button>
+  </ion-card>
+
+  <ion-card>
+    <button ion-item (click)="arCondicionado()" style="background-color: gray;">
+      <ion-icon ios="ios-snow" md="md-snow" item-start></ion-icon>
+      Climatização
+    </button>
+  </ion-card>
+
+  <ion-card>
+    <button ion-item (click)="televisao()" style="background-color: gray;">
+      <ion-icon ios="ios-desktop" md="md-desktop" item-start></ion-icon>
+      Televisões
+    </button>
+  </ion-card>
+
+  <ion-card>
+    <button ion-item (click)="portao()" style="background-color: gray;">
+      <ion-icon ios="ios-lock" md="md-lock" item-start></ion-icon>
+      Portões
+    </button>
+  </ion-card>
+
+  <!-- <ion-card>
+    <ion-card-header>
+      O que você deseja automatizar?
+    </ion-card-header>
+  
+    <ion-list>
+      <button ion-item (click)="lampadas()">
+        <ion-icon ios="md-bulb" md="md-bulb" item-start></ion-icon>
+        Iluminação
+      </button>
+
+      <button ion-item (click)="alarme()">
+        <ion-icon ios="ios-volume-up" md="md-volume-up" item-start></ion-icon>
+        Alarme
+      </button>
+
+      <button ion-item (click)="arCondicionado()">
+        <ion-icon ios="ios-snow" md="md-snow" item-start></ion-icon>
+        Climatização
+      </button>
+
+      <button ion-item (click)="televisao()">
+        <ion-icon ios="ios-desktop" md="md-desktop" item-start></ion-icon>
+        Televisões
+      </button>
+
+      <button ion-item (click)="portao()">
+        <ion-icon ios="ios-lock" md="md-lock" item-start></ion-icon>
+        Portões
+      </button>
+    </ion-list>
+  </ion-card> -->
+</ion-content>

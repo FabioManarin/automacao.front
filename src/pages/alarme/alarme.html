@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Alarme</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="home()">
+        <ion-icon name="md-arrow-back" style="zoom:1.8;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list-header>
+    Opções
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Externo</ion-label>
+    <ion-toggle [checked]="isCheckExterno" color="energized" (ionChange)="alarmeExterno($event)"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Interno</ion-label>
+    <ion-toggle [checked]="isCheckInterno" color="energized" (ionChange)="alarmeInterno($event)"></ion-toggle>
+  </ion-item>
+</ion-content>

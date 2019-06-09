@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Histórico</ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="home()">
+                <ion-icon name="md-arrow-back" style="zoom:1.8;"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list-header>
+        Últimas 50 atividades ordenadas pela data de criação
+    </ion-list-header>
+    <ion-item *ngFor="let item of historico">
+        <ion-card>
+            <ion-item>
+                <b>Usuario:</b> {{item.usuario}}
+            </ion-item>
+            <ion-item>
+                <b>Eletrônico:</b> {{item.eletronico}}
+            </ion-item>
+            <ion-item>
+                <b>Ativo:</b> {{item.ativo}}
+            </ion-item>
+            <ion-item>
+                <b>Data criação:</b> {{item.dataCriacao | date: 'dd/MM/yyyy - H:mm'}}
+            </ion-item>
+        </ion-card>
+    </ion-item>
+</ion-content>
