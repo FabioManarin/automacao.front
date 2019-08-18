@@ -1,10 +1,10 @@
-import { AlertProvider } from './../../providers/alert/alert';
+// import { AlertProvider } from './../../providers/alert/alert';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { HistoricoProvider } from '../../providers/historico/historico';
-import { HistoricoModel } from '../../app/models/historicoModel';
-import { UsuarioModel } from '../../app/models/usuarioModel';
+// import { HistoricoModel } from '../../app/models/historicoModel';
+// import { UsuarioModel } from '../../app/models/usuarioModel';
 
 
 @IonicPage()
@@ -14,9 +14,9 @@ import { UsuarioModel } from '../../app/models/usuarioModel';
 })
 export class AlarmePage {
 
-  historico: HistoricoModel = new HistoricoModel();
-  usuarioLogado: UsuarioModel = new UsuarioModel();
-  historicoList: Array<HistoricoModel> = new Array<HistoricoModel>();
+  // historico: HistoricoModel = new HistoricoModel();
+  // usuarioLogado: UsuarioModel = new UsuarioModel();
+  // historicoList: Array<HistoricoModel> = new Array<HistoricoModel>();
   isCheckInterno: boolean = false;
   isCheckExterno: boolean = false;
 
@@ -31,59 +31,45 @@ export class AlarmePage {
     this.navCtrl.setRoot('HomePage');
   }
 
-  ionViewDidLoad() {
-    this.historicoSrv.setUserLogado();
-    this.getStatus();
-  }
+  // ionViewDidLoad() {
+  //   this.historicoSrv.setUserLogado();
+  //   this.getStatus();
+  // }
 
-  getStatus(): void {
-    this.getStatusExterno();
-    this.getStatusInterno();
-  }
+  // getStatus(): void {
+  //   this.getStatusExterno();
+  //   this.getStatusInterno();
+  // }
 
-  async getStatusExterno(): Promise<void> {
-    try {
-      this.isCheckExterno = await this.historicoSrv.getStatus('Alarme externo');
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async getStatusExterno(): Promise<void> {
+  //   try {
+  //     this.isCheckExterno = await this.historicoSrv.getStatus('Alarme externo');
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  async getStatusInterno(): Promise<void> {
-    try {
-      this.isCheckInterno = await this.historicoSrv.getStatus('Alarme interno');
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async getStatusInterno(): Promise<void> {
+  //   try {
+  //     this.isCheckInterno = await this.historicoSrv.getStatus('Alarme interno');
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  alarmeInterno(event){
-    let nome = 'Alarme interno';
+  ligarAlarme(event){
     if(event.checked) {
-      this.ligarAlarme();
-      this.historicoSrv.save(nome, true);
+      this.bluetoothSerial.write('S1');
     } else {
-      this.desligarAlarme();
-      this.historicoSrv.save(nome, false);
+      this.bluetoothSerial.write('S0');
     }
   }
 
-  alarmeExterno(event){
-    let nome = 'Alarme externo';
+  dispararAlarme(event){
     if(event.checked) {
-      this.ligarAlarme();
-      this.historicoSrv.save(nome, true);
+      this.bluetoothSerial.write('SP1');
     } else {
-      this.desligarAlarme();
-      this.historicoSrv.save(nome, false);
+      this.bluetoothSerial.write('SP0');
     }
-  }
-
-  ligarAlarme() {
-    this.bluetoothSerial.write('ALL');
-  }
-
-  desligarAlarme() {
-    this.bluetoothSerial.write('ALD');
   }
 }

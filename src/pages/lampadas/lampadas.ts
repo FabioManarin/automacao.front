@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
-import { HistoricoModel } from '../../app/models/historicoModel';
-import { UsuarioModel } from '../../app/models/usuarioModel';
-import { HistoricoPage } from '../historico/historico';
-import { HistoricoProvider } from '../../providers/historico/historico';
+// import { HistoricoModel } from '../../app/models/historicoModel';
+// import { UsuarioModel } from '../../app/models/usuarioModel';
+// import { HistoricoPage } from '../historico/historico';
+// import { HistoricoProvider } from '../../providers/historico/historico';
 
 @IonicPage()
 @Component({
@@ -13,43 +13,17 @@ import { HistoricoProvider } from '../../providers/historico/historico';
 })
 export class LampadasPage {
 
-  historico: HistoricoModel = new HistoricoModel();
-  usuarioLogado: UsuarioModel = new UsuarioModel();
-  historicoList: Array<HistoricoModel> = new Array<HistoricoModel>();
+  // historico: HistoricoModel = new HistoricoModel();
+  // usuarioLogado: UsuarioModel = new UsuarioModel();
+  // historicoList: Array<HistoricoModel> = new Array<HistoricoModel>();
   isCheckSuite: boolean = false;
   isCheckQuarto: boolean = false;
+  isCheckAutomatica: boolean = false;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private bluetoothSerial: BluetoothSerial,
-    private historicoSrv: HistoricoProvider) {
-  }
-
-  ionViewDidLoad() {
-    this.historicoSrv.setUserLogado();
-    this.getStatus();
-  }
-
-  getStatus(): void {
-    this.getStatusSuite();
-    this.getStatusQuarto();
-  }
-
-  async getStatusSuite(): Promise<void> {
-    try {
-      this.isCheckSuite = await this.historicoSrv.getStatus('Lampada suíte');
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async getStatusQuarto(): Promise<void> {
-    try {
-      this.isCheckQuarto = await this.historicoSrv.getStatus('Lampada quarto');
-    } catch (error) {
-      console.log(error);
-    }
+    private bluetoothSerial: BluetoothSerial) {
   }
 
   home(): void {
@@ -58,32 +32,25 @@ export class LampadasPage {
 
   lampadaSuite(event){
     if(event.checked) {
-      this.acenderLed();
-      this.historicoSrv.save('Lampada suíte', true);
+      this.bluetoothSerial.write('LS1');
     } else {
-      this.apagarLed();
-      this.historicoSrv.save('Lampada suíte', false);
+      this.bluetoothSerial.write('LS0');
     }
   }
 
   lampadaQuarto(event){
     if(event.checked) {
-      this.acenderLed();
-      this.historicoSrv.save('Lampada quarto', true);
+      this.bluetoothSerial.write('LQ1');
     } else {
-      this.apagarLed();
-      this.historicoSrv.save('Lampada quarto', false);
+      this.bluetoothSerial.write('LQ0');
     }
   }
 
-  acenderLed() {
-    let ledVermelho = 'L';
-    this.bluetoothSerial.write(ledVermelho);
+  automatica(event){
+    if(event.checked) {
+      this.bluetoothSerial.write('A1');
+    } else {
+      this.bluetoothSerial.write('A0');
+    }
   }
-
-  apagarLed() {
-    let ledVermelho = 'D';
-    this.bluetoothSerial.write(ledVermelho);
-  }
-
 }

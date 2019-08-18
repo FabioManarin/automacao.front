@@ -8,7 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = UsuarioProvider.IsLogado ? 'HomePage' : 'LoginPage';
+  rootPage: any = UsuarioProvider.IsLogado ? 'HomePage' : 'HomePage';
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

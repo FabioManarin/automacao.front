@@ -15,12 +15,12 @@
   </ion-list-header>
 
   <ion-item>
-    <ion-label>Externo</ion-label>
-    <ion-toggle [checked]="isCheckExterno" color="energized" (ionChange)="alarmeExterno($event)"></ion-toggle>
+    <ion-label>Ligar alarme</ion-label>
+    <ion-toggle [checked]="isCheckExterno" color="energized" (ionChange)="ligarAlarme($event)"></ion-toggle>
   </ion-item>
 
   <ion-item>
-    <ion-label>Interno</ion-label>
-    <ion-toggle [checked]="isCheckInterno" color="energized" (ionChange)="alarmeInterno($event)"></ion-toggle>
+    <ion-label>Disparar alarme (Panico)</ion-label>
+    <ion-toggle [checked]="isCheckInterno" color="energized" (ionChange)="dispararAlarme($event)"></ion-toggle>
   </ion-item>
 </ion-content>
