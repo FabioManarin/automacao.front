@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="gray">
-    <ion-title>Ar condicionado</ion-title>
+    <ion-title>Ventilador</ion-title>
     <ion-buttons start>
       <button ion-button (click)="home()">
         <ion-icon name="md-arrow-back" style="zoom:1.8;"></ion-icon>
@@ -13,6 +13,25 @@
   <ion-list-header>
     Cômodo
   </ion-list-header>
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-label style="margin-left: 12px; font-size: 16px;">
+        Temperatura atual: {{ temperaturaAtual }}
+      </ion-label>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-input [(ngModel)]="temperaturaInformada" type="number" placeholder="Ex.: 23" style="font-size: 16px;">
+        </ion-input>
+      </ion-col>
+      <ion-col size="6">
+        <button ion-button color="gray" block round (click)="tempInformada()">
+          Enviar
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
 
   <ion-item>
     <ion-label>Ventilador</ion-label>

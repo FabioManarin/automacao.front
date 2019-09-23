@@ -12,6 +12,8 @@ import { HistoricoProvider } from '../../providers/historico/historico';
 export class ArCondicionadoPage {
   isCheckVentilador: boolean = false;
   isCheckAutomatico: boolean = false;
+  temperaturaAtual: String;
+  temperaturaInformada: number;
 
   constructor(
     public navCtrl: NavController,
@@ -19,8 +21,23 @@ export class ArCondicionadoPage {
     private bluetoothSerial: BluetoothSerial) {
   }
 
+  ionViewDidLoad() {
+    this.teste();
+  }
+
   home(): void {
     this.navCtrl.setRoot('HomePage');
+  }
+
+  tempInformada() {
+    this.bluetoothSerial.write('T' + this.temperaturaInformada);
+  }
+  
+  teste() {
+    this.bluetoothSerial.read().then(success => {
+      this.temperaturaAtual = '';
+      this.temperaturaAtual = success;
+    })
   }
 
   ventilador(event){
@@ -33,9 +50,9 @@ export class ArCondicionadoPage {
 
   ventiladorAutomatico(event){
     if(event.checked) {
-      this.bluetoothSerial.write('VA1');
+      this.bluetoothSerial.write('XA1');
     } else {
-      this.bluetoothSerial.write('VA0');
+      this.bluetoothSerial.write('XA0');
     }
   }
 }

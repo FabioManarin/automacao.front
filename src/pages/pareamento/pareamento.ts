@@ -71,8 +71,8 @@ export class PareamentoPage {
   deviceConnected() {
     // Subscribe to data receiving as soon as the delimiter is read
     this.bluetoothSerial.subscribe('\n').subscribe(success => {
-      this.handleData(success);
-      this.alertSrv.alert('Aviso', 'Conectado com sucesso.');
+      // this.handleData(success);
+      // this.alertSrv.alert('Aviso', 'Conectado com sucesso.');
     }, error => {
       this.alertSrv.alert('Erro', error);
     });
