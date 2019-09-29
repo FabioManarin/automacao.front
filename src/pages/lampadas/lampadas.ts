@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
-// import { HistoricoModel } from '../../app/models/historicoModel';
-// import { UsuarioModel } from '../../app/models/usuarioModel';
-// import { HistoricoPage } from '../historico/historico';
-// import { HistoricoProvider } from '../../providers/historico/historico';
 
 @IonicPage()
 @Component({
@@ -12,12 +8,10 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
   templateUrl: 'lampadas.html',
 })
 export class LampadasPage {
-
-  // historico: HistoricoModel = new HistoricoModel();
-  // usuarioLogado: UsuarioModel = new UsuarioModel();
-  // historicoList: Array<HistoricoModel> = new Array<HistoricoModel>();
-  isCheckSuite: boolean = false;
+  isCheckGaragem: boolean = false;
   isCheckQuarto: boolean = false;
+  isCheckCozinha: boolean = false;
+  isCheckSala: boolean = false;
   isCheckAutomatica: boolean = false;
 
   constructor(
@@ -30,7 +24,7 @@ export class LampadasPage {
     this.navCtrl.setRoot('HomePage');
   }
 
-  lampadaSuite(event){
+  lampadaGaragem(event){
     if(event.checked) {
       this.bluetoothSerial.write('LS1');
     } else {
@@ -43,6 +37,22 @@ export class LampadasPage {
       this.bluetoothSerial.write('LQ1');
     } else {
       this.bluetoothSerial.write('LQ0');
+    }
+  }
+
+  lampadaSala(event){
+    if(event.checked) {
+      this.bluetoothSerial.write('LL1');
+    } else {
+      this.bluetoothSerial.write('LL0');
+    }
+  }
+
+  lampadaCozinha(event){
+    if(event.checked) {
+      this.bluetoothSerial.write('LC1');
+    } else {
+      this.bluetoothSerial.write('LC0');
     }
   }
 

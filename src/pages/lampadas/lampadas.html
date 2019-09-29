@@ -15,13 +15,23 @@
   </ion-list-header>
 
   <ion-item>
-    <ion-label>Suíte</ion-label>
-    <ion-toggle [checked]="isCheckSuite" color="energized" (ionChange)="lampadaSuite($event)"></ion-toggle>
+    <ion-label>Garagem</ion-label>
+    <ion-toggle [checked]="isCheckGaragem" color="energized" (ionChange)="lampadaGaragem($event)"></ion-toggle>
   </ion-item>
 
   <ion-item>
-    <ion-label>Quarto 1</ion-label>
+    <ion-label>Quarto</ion-label>
     <ion-toggle [checked]="isCheckQuarto" (ionChange)="lampadaQuarto($event)"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cozinha</ion-label>
+    <ion-toggle [checked]="isCheckCozinha" (ionChange)="lampadaCozinha($event)"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Sala</ion-label>
+    <ion-toggle [checked]="isCheckSala" (ionChange)="lampadaSala($event)"></ion-toggle>
   </ion-item>
 
   <ion-item>
