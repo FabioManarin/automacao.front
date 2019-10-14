@@ -13,6 +13,7 @@ export class LampadasPage {
   isCheckCozinha: boolean = false;
   isCheckSala: boolean = false;
   isCheckAutomatica: boolean = false;
+  isCheckTodasLampadas: boolean = false;
 
   constructor(
     public navCtrl: NavController, 
@@ -61,6 +62,14 @@ export class LampadasPage {
       this.bluetoothSerial.write('A1');
     } else {
       this.bluetoothSerial.write('A0');
+    }
+  }
+
+  todasLampadas(event){
+    if(event.checked) {
+      this.bluetoothSerial.write('BL1');
+    } else {
+      this.bluetoothSerial.write('BL0');
     }
   }
 }

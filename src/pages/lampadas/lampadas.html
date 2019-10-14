@@ -38,4 +38,9 @@
     <ion-label>Iluminação automatica</ion-label>
     <ion-toggle [checked]="isCheckAutomatica" (ionChange)="automatica($event)"></ion-toggle>
   </ion-item>
+
+  <ion-item>
+    <ion-label>Todas as lâmpadas</ion-label>
+    <ion-toggle [checked]="isCheckTodasLampadas" (ionChange)="todasLampadas($event)"></ion-toggle>
+  </ion-item>
 </ion-content>
